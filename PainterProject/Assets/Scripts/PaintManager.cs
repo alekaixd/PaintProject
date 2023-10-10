@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PaintManager : MonoBehaviour
 {
     public GameObject pyoreaPrefab;
     public GameObject FollowUpCursor;
     public TextMeshProUGUI paintText;
+
+    public Text teksti;
+
+
+    //public Slider slider;
 
     [SerializeField] private float aikaennen_kuin_tuhoutuu;
 
@@ -27,6 +33,9 @@ public class PaintManager : MonoBehaviour
         {
             LuoPyorea();
         }
+
+
+        //slider.value = paint; Slider kuollut kouluampumisessa. Slider saa valtion järjestämät hautajaiset
         
     }
 
