@@ -5,6 +5,7 @@ using UnityEngine;
 public class LuoPyoreaObjekti : MonoBehaviour
 {
     public GameObject pyoreaPrefab;
+    public GameObject FollowUpCursor;
 
     [SerializeField] private float aikaennen_kuin_tuhoutuu;
     
@@ -33,12 +34,7 @@ public class LuoPyoreaObjekti : MonoBehaviour
 
     void LuoPyorea()
     {
-        
-        Vector3 hiirenSijainti = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        hiirenSijainti.z = 0;
-
-
-        GameObject uusiPyorea = Instantiate(pyoreaPrefab, hiirenSijainti, Quaternion.identity);
+        GameObject uusiPyorea = Instantiate(pyoreaPrefab, FollowUpCursor.transform.position, Quaternion.identity);
 
         Destroy(uusiPyorea, aikaennen_kuin_tuhoutuu);
     }

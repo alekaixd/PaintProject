@@ -6,15 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
     private float speed = 5f;
-    private float horizontalSpeed;
     private float currentSpeed;
     private float jumpingPower = 7f;
     private bool isFacingRight = true;
     public Rigidbody2D rb2d;
     public Transform groundCheck;
     public LayerMask groundlayer;
+    public LayerMask paintlayer;
     public AnimationCurve movementCurve;
-    public AnimationCurve decelerationCurve;
     public float time;
 
     
@@ -38,22 +37,11 @@ public class PlayerMovement : MonoBehaviour
             speed = movementCurve.Evaluate(time);
             time += Time.deltaTime;
         }
-        else
-        {
-            currentSpeed = speed;
-            speed = Mathf.MoveTowards(currentSpeed, 0, decelerationCurve.Evaluate(time));
-            time += Time.deltaTime;
-        }
 
         if (Input.GetButtonUp("Horizontal"))
         {
             time = 0;
         }
-        if (Input.GetButtonDown("Horizontal"))
-        {
-            time = 0;
-        }
-        horizontalSpeed = horizontal * speed;
 
         Flip();
     }
@@ -65,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundlayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.3f, LayerMask.GetMask("Ground", "Paint"));
     }
 
     private void Flip()

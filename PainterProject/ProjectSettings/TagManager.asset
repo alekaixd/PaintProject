@@ -12,9 +12,9 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
+  - Cursor
+  - Player
+  - Paint
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1405450567
+    locked: 0
+  - name: Cursor
+    uniqueID: 3057488591
     locked: 0
