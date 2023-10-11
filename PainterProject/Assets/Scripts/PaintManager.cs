@@ -8,9 +8,8 @@ public class PaintManager : MonoBehaviour
 {
     public GameObject pyoreaPrefab;
     public GameObject FollowUpCursor;
-    public TextMeshProUGUI paintText;
 
-    public Text teksti;
+    //public Text teksti;
 
 
     //public Slider slider;
@@ -24,11 +23,11 @@ public class PaintManager : MonoBehaviour
     private void Start()
     {
         paint = maxPaint;
+        StartCoroutine(StartRegenerating());
     }
 
     void Update()
     {
-        paintText.text = "Paint: " + paint;
         if (Input.GetMouseButton(0))
         {
             LuoPyorea();
@@ -36,7 +35,7 @@ public class PaintManager : MonoBehaviour
 
 
         //slider.value = paint; Slider kuollut kouluampumisessa. Slider saa valtion järjestämät hautajaiset
-        
+
     }
 
     void LuoPyorea()
@@ -53,7 +52,13 @@ public class PaintManager : MonoBehaviour
 
     private IEnumerator StartRegenerating()
     {
-        yield return new WaitForSeconds(0.1f);
-        paint += 1;
+        while (true)
+        {
+            yield return new WaitForSeconds(0.1f);
+            if (paint < maxPaint)
+            {
+                paint += 1;
+            }
+        }
     }
 }
