@@ -15,15 +15,18 @@ public class PaintManager : MonoBehaviour
     //public Slider slider;
 
     [SerializeField] private float aikaennen_kuin_tuhoutuu;
+    private bool isRegenerating;
+    private bool spawningPaint;
+    private bool startFading;
 
 
-    public int maxPaint = 100;
-    public int paint;
+    public float maxPaint = 100;
+    public float paint;
 
     private void Start()
     {
         paint = maxPaint;
-        StartCoroutine(StartRegenerating());
+        
     }
 
     void Update()
@@ -32,33 +35,43 @@ public class PaintManager : MonoBehaviour
         {
             LuoPyorea();
         }
-
-
+        else if (isRegenerating == false)
+        {
+            StartCoroutine(Regenerate());
+        }
         //slider.value = paint; Slider kuollut kouluampumisessa. Slider saa valtion järjestämät hautajaiset
 
     }
 
     void LuoPyorea()
     {
-        if (paint > 0)
+        if (paint > 0 && spawningPaint == false)
         {
-            GameObject uusiPyorea = Instantiate(pyoreaPrefab, FollowUpCursor.transform.position, Quaternion.identity);
-
-            Destroy(uusiPyorea, aikaennen_kuin_tuhoutuu);
-
-            paint -= 1;
+            StartCoroutine(spawnPaint());
         }
     }
 
-    private IEnumerator StartRegenerating()
+    private IEnumerator spawnPaint()
     {
-        while (true)
+        spawningPaint = true;
+        GameObject uusiPyorea = Instantiate(pyoreaPrefab, FollowUpCursor.transform.position, Quaternion.identity);
+        paint -= 1;
+        yield return new WaitForSeconds(.01f);
+        spawningPaint = false;
+    }
+
+    private IEnumerator Regenerate()
+    {
+        isRegenerating = true;
+        yield return new WaitForSeconds(0.1f);
+        if (paint < maxPaint)
         {
-            yield return new WaitForSeconds(0.1f);
-            if (paint < maxPaint)
+            paint += 2;
+            if (paint > maxPaint)
             {
-                paint += 1;
+                paint = maxPaint;
             }
         }
+        isRegenerating = false;
     }
 }
