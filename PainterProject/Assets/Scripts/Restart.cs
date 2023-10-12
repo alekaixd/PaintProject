@@ -14,9 +14,11 @@ public class Restart : MonoBehaviour
         btn.onClick.AddListener(TaskOnClick);
     }
     
-    void TaskOnClick()
+    public void TaskOnClick()
     {
-        SceneManager.LoadScene("Level 1");
 
+        GameObject music = GameObject.Find("MUSIC MAN");
+        Destroy(music);
+        SceneManager.LoadScene("Main Menu");
     }
 }
