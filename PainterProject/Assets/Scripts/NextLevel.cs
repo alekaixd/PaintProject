@@ -3,17 +3,39 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class NextLevel : MonoBehaviour
 {
     public GameObject levelClearedScreen;
     public GameObject player;
+    public int stars;
+    public GameObject[] starObjects;
+    public TextMeshProUGUI finalTime;
 
     private void OnTriggerEnter2D(Collider2D collision)
 {
     if (collision.CompareTag("Player"))
         {
             levelClearedScreen.SetActive(true);
+            starObjects[0].SetActive(false);
+            starObjects[1].SetActive(false);
+            starObjects[2].SetActive(false);
+            if (stars >= 1)
+            {
+                Debug.Log(stars);
+                starObjects[0].SetActive(true);
+            }
+            else if (stars >= 2)
+            {
+                Debug.Log(stars);
+                starObjects[1].SetActive(true);
+            }
+            else if (stars >= 3)
+            {
+                Debug.Log(stars);
+                starObjects[2].SetActive(true);
+            }
         }
     
 }

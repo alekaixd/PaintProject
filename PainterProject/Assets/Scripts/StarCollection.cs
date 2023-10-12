@@ -5,25 +5,16 @@ using UnityEngine;
 public class StarCollection : MonoBehaviour
 {
     public GameObject player;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public NextLevel nextLevel;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
 
-    }
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-         Destroy(gameObject);
+            nextLevel.stars += 1;
+            Destroy(gameObject);
+        }
+    }
 
-        }     
-    }    
 }
