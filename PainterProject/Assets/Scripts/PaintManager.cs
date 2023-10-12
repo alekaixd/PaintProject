@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PaintManager : MonoBehaviour
 {
-    public GameObject pyoreaPrefab;
+    public GameObject[] PaintPrefab;
     public GameObject FollowUpCursor;
 
     //public Text teksti;
@@ -54,7 +54,7 @@ public class PaintManager : MonoBehaviour
     private IEnumerator spawnPaint()
     {
         spawningPaint = true;
-        GameObject uusiPyorea = Instantiate(pyoreaPrefab, FollowUpCursor.transform.position, Quaternion.identity);
+        GameObject uusiPyorea = Instantiate(PaintPrefab[Random.Range(0, PaintPrefab.Length)], FollowUpCursor.transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
         paint -= 1;
         yield return new WaitForSeconds(.01f);
         spawningPaint = false;

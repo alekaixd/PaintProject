@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class AsetaTeksti : MonoBehaviour
 {
-    public Text tekstiKomponentti; 
-
     public PaintManager paintManager;
 
     public Slider slider;
@@ -14,7 +12,6 @@ public class AsetaTeksti : MonoBehaviour
     void Update()
     {
         
-        tekstiKomponentti.text = paintManager.paint.ToString();
         slider.value = (paintManager.paint / paintManager.maxPaint) * 100;
     }
 }
