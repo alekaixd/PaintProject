@@ -6,8 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
     private float speed = 5f;
-    private float currentSpeed;
-    private float jumpingPower = 7f;
+    private float jumpingPower = 10f;
     private bool isFacingRight = true;
     public Rigidbody2D rb2d;
     public Transform groundCheck;

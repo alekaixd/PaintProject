@@ -20,7 +20,7 @@ public class PaintManager : MonoBehaviour
     private bool startFading;
 
 
-    public float maxPaint = 100;
+    public float maxPaint = 40;
     public float paint;
 
     private void Start()
