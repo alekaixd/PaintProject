@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class KillPlayer : MonoBehaviour
 {
     public GameObject player;
-    public Transform respawnPoint;
     // Start is called before the first frame update
     void Start()
     {
