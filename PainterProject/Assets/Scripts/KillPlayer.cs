@@ -17,10 +17,13 @@ public class KillPlayer : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentScene.name);
-        Debug.Log("ddd");
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.name);
+            Debug.Log("ddd");
+        }       
     }
 }
