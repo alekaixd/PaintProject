@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KillPlayer : MonoBehaviour
 {
+    public GameObject player;
+    public Transform respawnPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,11 @@ public class KillPlayer : MonoBehaviour
     void Update()
     {
         
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+        Debug.Log("ddd");
     }
 }
