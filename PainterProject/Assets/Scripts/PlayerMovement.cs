@@ -15,19 +15,23 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask paintlayer;
     public AnimationCurve movementCurve;
     public float time;
+    private SFX SFX;
 
 
 
     private void Start()
     {
+        SFX = GameObject.Find("SFX").GetComponent<SFX>();
         animator= gameObject.GetComponent<Animator>();
     }
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Hor", horizontal);
+        SFX.PlayJump();
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpingPower);
         }
 
