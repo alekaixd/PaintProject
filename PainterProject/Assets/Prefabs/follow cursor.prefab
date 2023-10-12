@@ -187,6 +187,7 @@ MonoBehaviour:
   player: {fileID: 0}
   cursorSpeed: 0.19
   cursorRange: 5
+  circleCollider: {fileID: 0}
 --- !u!58 &3130325185330514428
 CircleCollider2D:
   m_ObjectHideFlags: 0
