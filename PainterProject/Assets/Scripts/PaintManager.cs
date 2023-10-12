@@ -17,7 +17,7 @@ public class PaintManager : MonoBehaviour
     [SerializeField] private float aikaennen_kuin_tuhoutuu;
     private bool isRegenerating;
     private bool spawningPaint;
-    private bool startFading;
+    private bool canRegenerate;
 
 
     public float maxPaint = 40;
@@ -33,9 +33,15 @@ public class PaintManager : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
+            canRegenerate = false;
             LuoPyorea();
         }
-        else if (isRegenerating == false)
+        else if (canRegenerate == false)
+        {
+            StartCoroutine(delayBeforeRegen());
+        }
+
+        if (canRegenerate == true && isRegenerating == false)
         {
             StartCoroutine(Regenerate());
         }
@@ -73,5 +79,11 @@ public class PaintManager : MonoBehaviour
             }
         }
         isRegenerating = false;
+    }
+
+    private IEnumerator delayBeforeRegen()
+    {
+        yield return new WaitForSeconds(.5f);
+        canRegenerate = true;
     }
 }

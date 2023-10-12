@@ -11,7 +11,7 @@ public class NextLevel : MonoBehaviour
     public GameObject player;
     public int stars;
     public GameObject[] starObjects;
-    public TextMeshProUGUI finalTime;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
 {
@@ -26,12 +26,12 @@ public class NextLevel : MonoBehaviour
                 Debug.Log(stars);
                 starObjects[0].SetActive(true);
             }
-            else if (stars >= 2)
+            if (stars >= 2)
             {
                 Debug.Log(stars);
                 starObjects[1].SetActive(true);
             }
-            else if (stars >= 3)
+            if (stars >= 3)
             {
                 Debug.Log(stars);
                 starObjects[2].SetActive(true);

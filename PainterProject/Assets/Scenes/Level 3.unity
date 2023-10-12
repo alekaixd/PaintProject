@@ -2343,7 +2343,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 311074385}
-  respawnPoint: {fileID: 0}
 --- !u!1 &243200441
 GameObject:
   m_ObjectHideFlags: 0
@@ -12705,7 +12704,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  respawnPoint: {fileID: 0}
 --- !u!61 &906429441
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12771,7 +12769,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 311074385}
-  respawnPoint: {fileID: 0}
 --- !u!1 &937685732 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 897752069, guid: 1836140d992689e46ac969984d3bdaa4, type: 3}
@@ -17394,6 +17391,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 802087779, guid: 1836140d992689e46ac969984d3bdaa4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 158797689}
+    - target: {fileID: 802087779, guid: 1836140d992689e46ac969984d3bdaa4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 1740635818714158289, guid: 1836140d992689e46ac969984d3bdaa4, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -19160,7 +19165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 311074385}
-  respawnPoint: {fileID: 0}
 --- !u!1 &1360696746
 GameObject:
   m_ObjectHideFlags: 0
@@ -19286,7 +19290,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 311074385}
-  respawnPoint: {fileID: 0}
 --- !u!1 &1361922372
 GameObject:
   m_ObjectHideFlags: 0
